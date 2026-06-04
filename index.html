@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Undercover - Jeu</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Undercover</h1>
+				<p>Découvrez qui est l'agent secret !</p>
+			</header>
+
+			<main id="game">
+				<!-- Phase 1: Choose number of players -->
+				<section id="setup" class="active">
+					<h2>Nombre de joueurs</h2>
+					<div class="player-count">
+						<button class="count-btn" data-count="3">3</button>
+						<button class="count-btn" data-count="4">4</button>
+						<button class="count-btn" data-count="5">5</button>
+						<button class="count-btn" data-count="6">6</button>
+						<button class="count-btn" data-count="7">7</button>
+						<button class="count-btn" data-count="8">8</button>
+						<button class="count-btn" data-count="9">9</button>
+						<button class="count-btn" data-count="10">10</button>
+					</div>
+					<p class="instructions">Choisissez le nombre de joueurs</p>
+				</section>
+
+				<!-- Phase 2: Enter player names -->
+				<section id="names" class="hidden">
+					<h2>Noms des joueurs</h2>
+					<div id="name-inputs">
+						<!-- Player names will be added here dynamically -->
+					</div>
+					<button id="start-game" class="btn-primary">
+						Commencer la partie
+					</button>
+				</section>
+
+				<!-- Phase 3: Game play -->
+				<section id="gameplay" class="hidden">
+					<div class="game-header">
+						<h2>Phase de jeu</h2>
+						<div class="current-player">
+							<span>Joueur actuel : </span>
+							<span id="current-player-name">-</span>
+						</div>
+					</div>
+
+					<div class="card-container">
+						<div class="card">
+							<div class="card-front">
+								<p>Appuyez et maintenez pour voir votre mot</p>
+								<div class="hold-indicator">
+									<div class="hold-bar"></div>
+									<div class="hold-text">Appuyez pour révéler</div>
+								</div>
+							</div>
+							<div class="card-back">
+								<p id="player-word">-</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="game-controls">
+						<button id="next-player" class="btn-secondary">
+							Joueur suivant
+						</button>
+						<button id="reveal-all" class="btn-warning">
+							Révéler tous les mots
+						</button>
+					</div>
+				</section>
+
+				<!-- Phase 4: Results -->
+				<section id="results" class="hidden">
+					<h2>Résultats</h2>
+					<div id="results-content">
+						<!-- Results will be displayed here -->
+					</div>
+					<button id="restart-game" class="btn-primary">Rejouer</button>
+				</section>
+			</main>
+		</div>
+
+		<div id="history-container" class="history-container">
+			<h3>Historique des parties</h3>
+			<div id="history-list">
+				<!-- History items will be added here -->
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
