@@ -56,7 +56,7 @@ class UndercoverGame {
 
 	async loadWordPairs() {
 		try {
-			const response = await fetch("words.json");
+			const response = await fetch("data/words.json");
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
