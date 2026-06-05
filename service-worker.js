@@ -2,9 +2,9 @@ const CACHE_NAME = "undercover-v1";
 const urlsToCache = [
 	"/",
 	"/index.html",
-	"/script.js",
-	"/styles.css",
-	"/words.json",
+	"/src/script.js",
+	"/src/styles.css",
+	"/data/words.json",
 ];
 
 // Mise à jour du cache à chaque installation
@@ -14,28 +14,30 @@ self.addEventListener("install", (event) => {
 	);
 });
 
-// Gérer les requêtes en ligne
+// Gérer les requêtes
 self.addEventListener("fetch", (event) => {
 	const requestUrl = new URL(event.request.url);
 
-	// Si c'est un fichier de données (comme words.json), on le met à jour
+	// Pour les fichiers de données (comme words.json)
 	if (requestUrl.pathname.endsWith("words.json")) {
 		event.respondWith(
+			// Priorité : réseau → cache → erreur
 			fetch(event.request)
 				.then((response) => {
-					// Mettre à jour le cache
-					caches
-						.open(CACHE_NAME)
-						.then((cache) => cache.put(event.request, response.clone()));
+					// Clone la réponse pour la mettre dans le cache
+					const responseClone = response.clone();
+					caches.open(CACHE_NAME).then((cache) => {
+						cache.put(event.request, responseClone);
+					});
 					return response;
 				})
 				.catch(() => {
-					// Si échec réseau, retourner la version en cache
+					// Si échec réseau, retourne la version en cache
 					return caches.match(event.request);
 				}),
 		);
 	} else {
-		// Pour les autres fichiers : priorité cache, puis réseau
+		// Pour les autres fichiers : cache-first, puis réseau
 		event.respondWith(
 			caches.match(event.request).then((response) => {
 				return response || fetch(event.request);
