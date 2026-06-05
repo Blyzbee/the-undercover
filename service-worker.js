@@ -2,9 +2,9 @@ const CACHE_NAME = "undercover-v1";
 const urlsToCache = [
 	"/",
 	"/index.html",
-	"/src/script.js",
-	"/src/styles.css",
-	"/data/words.json",
+	"/script.js",
+	"/styles.css",
+	"/words.json",
 ];
 
 // Mise à jour du cache à chaque installation
