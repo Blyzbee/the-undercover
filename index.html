@@ -3,8 +3,28 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Undercover - Jeu</title>
+		<title>The Undercover</title>
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/icons/favicon-16x16.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/icons/apple-touch-icon.png"
+		/>
+		<meta name="theme-color" content="#3498db" />
 	</head>
 	<body>
 		<div class="container">
@@ -57,7 +77,7 @@
 								<p>Appuyez et maintenez pour voir votre mot</p>
 								<div class="hold-indicator">
 									<div class="hold-bar"></div>
-									<div class="hold-text">Appuyez pour révéler</div>
+									<div class="hold-text">Maintenez pour révéler</div>
 								</div>
 							</div>
 							<div class="card-back">
@@ -71,7 +91,7 @@
 							Joueur suivant
 						</button>
 						<button id="reveal-all" class="btn-warning">
-							Révéler tous les mots
+							Révéler l'agent secret
 						</button>
 					</div>
 				</section>
