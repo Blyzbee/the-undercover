@@ -2,7 +2,7 @@
 	"name": "The Undercover",
 	"short_name": "Undercover",
 	"description": "A web application for undercover operations and secret missions.",
-	"start_url": "/",
+	"start_url": "/the-undercover/",
 	"display": "standalone",
 	"background_color": "#1a1a1a",
 	"theme_color": "#1a1a1a",
